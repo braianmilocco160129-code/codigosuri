@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="CódigoSuri - Desarrollo de software a medida para empresas y emprendedores. Tecnología con identidad.">
+    <title>CódigoSuri - Tecnología a tu medida</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="navbar" id="navbar">
+      <div class="container navbar-content">
+        <a href="#" class="logo-link">
+          <img src="logo.png" alt="CódigoSuri Logo" class="navbar-logo">
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav-menu" id="navMenu">
+          <a href="#servicios" class="nav-link">Servicios</a>
+          <a href="#experiencia" class="nav-link">Experiencia</a>
+          <a href="#equipo" class="nav-link">Quiénes Somos</a>
+          <a href="#contacto" class="nav-link">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">Tecnología a tu medida</h1>
+            <p class="hero-subtitle">
+              Somos <strong>CódigoSuri</strong>, un equipo de desarrollo que crea las soluciones de software que tu proyecto necesita. Sin importar el tamaño, convertimos tu idea en código.
+            </p>
+            <a href="#contacto" class="btn btn-primary">Contanos tu idea</a>
+          </div>
+          <div class="hero-image">
+            <img src="trama.jpg" alt="Trama CódigoSuri" />
+          </div>
+        </div>
+      </section>
+
+      <section class="services" id="servicios">
+        <div class="container">
+          <h2 class="section-title">¿Qué Hacemos?</h2>
+          <p class="section-intro">
+            Nuestro objetivo es democratizar el acceso a la tecnología. Escuchamos, analizamos y trabajamos junto a vos para crear soluciones escalables y eficientes, sin venderte cosas que no necesitás.
+          </p>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">🌐</div>
+              <h3>Landing Pages y Sitios Web</h3>
+              <p>Presencia digital profesional y efectiva para tu negocio.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">📱</div>
+              <h3>Aplicaciones Mobile</h3>
+              <p>Apps nativas y multiplataforma para iOS y Android.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">⚙️</div>
+              <h3>Sistemas de Gestión a Medida</h3>
+              <p>Soluciones personalizadas para optimizar tus procesos.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🔄</div>
+              <h3>ETL</h3>
+              <p>Extracción, transformación y carga de datos eficiente.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">📊</div>
+              <h3>Business Intelligence</h3>
+              <p>Análisis de datos y visualización para mejores decisiones.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🤖</div>
+              <h3>Bots e Integraciones</h3>
+              <p>Automatización inteligente con IA para tu negocio.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience" id="experiencia">
+        <div class="container">
+          <h2 class="section-title">Nuestra Experiencia</h2>
+          <p class="section-intro">
+            Como equipo, hemos trabajado en una amplia gama de proyectos desafiantes, aportando soluciones sólidas en distintos rubros.
+          </p>
+          <div class="carousel-container">
+            <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Proyecto anterior">
+              ‹
+            </button>
+            <div class="carousel" id="carousel">
+              <div class="experience-card">
+                <div class="card-badge">App Web</div>
+                <h3>App Scrapy</h3>
+                <p>Desarrollo de una aplicación web para optimizar y facilitar la recolección de residuos de última milla para municipios.</p>
+              </div>
+              <div class="experience-card">
+                <div class="card-badge">Sistema de Gestión</div>
+                <h3>Bar Zoom</h3>
+                <p>Sistema de gestión integral (turnos, caja, productos, estadísticas, notificaciones) con integración nativa a AFIP y MercadoPago.</p>
+              </div>
+              <div class="experience-card">
+                <div class="card-badge">IA + Análisis</div>
+                <h3>EcoSnapshot</h3>
+                <p>Plataforma con IA para el análisis y visualización de métricas de triple impacto (social, ambiental y económico) para empresas.</p>
+              </div>
+              <div class="experience-card">
+                <div class="card-badge">Bot IA</div>
+                <h3>Bot de Seguros</h3>
+                <p>Bot de WhatsApp con IA e integración a sistemas externos para simplificar y automatizar la gestión de clientes.</p>
+              </div>
+              <div class="experience-card">
+                <div class="card-badge">E-commerce</div>
+                <h3>Espacio Mistral</h3>
+                <p>Sitio web para teatro independiente en España, incluyendo sistema de e-commerce para venta de entradas online y manejo de suscripciones.</p>
+              </div>
+              <div class="experience-card">
+                <div class="card-badge">Solución Legal</div>
+                <h3>Estudio de Abogados</h3>
+                <p>Desarrollo a medida para la carga, procesamiento y descarga de datos entre múltiples sistemas legales.</p>
+              </div>
+            </div>
+            <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Proyecto siguiente">
+              ›
+            </button>
+          </div>
+          <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+      </section>
+
+      <section class="team" id="equipo">
+        <div class="container">
+          <h2 class="section-title">Quiénes Somos</h2>
+          <div class="team-grid">
+            <div class="team-card">
+              <img src="mt.png" alt="Martin Tau" class="team-photo">
+              <h3 class="team-name">Martin Tau</h3>
+              <p class="team-role">Co-Founder y Desarrollador</p>
+            </div>
+            <div class="team-card">
+              <img src="bmm.png" alt="Braian Milocco" class="team-photo">
+              <h3 class="team-name">Braian Milocco</h3>
+              <p class="team-role">Co-Founder y Desarrollador</p>
+            </div>
+            <div class="team-card">
+              <img src="nm.png" alt="Nahuel Morena" class="team-photo">
+              <h3 class="team-name">Nahuel Morena</h3>
+              <p class="team-role">Co-Founder y Desarrollador</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contacto">
+        <div class="container">
+          <div class="contact-content">
+            <div class="contact-info">
+              <h2 class="section-title">Hablemos</h2>
+              <p class="contact-text">
+                Contanos tu idea y conversemos. Queremos escucharte y trabajar juntos para encontrar la mejor solución para tu proyecto.
+              </p>
+              <div class="contact-highlights">
+                <div class="highlight-item">
+                  <span class="highlight-icon">💬</span>
+                  <span>Análisis sin compromiso</span>
+                </div>
+                <div class="highlight-item">
+                  <span class="highlight-icon">🤝</span>
+                  <span>Trabajo colaborativo</span>
+                </div>
+                <div class="highlight-item">
+                  <span class="highlight-icon">✨</span>
+                  <span>Calidad garantizada</span>
+                </div>
+              </div>
+            </div>
+            <div class="contact-form">
+              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfNeKRCmIJydC_2ZmrMpjdvCN7AssHhHtxHJFRb06KeTaqoaA/viewform?embedded=true" width="100%" height="719" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <img src="logo.png" alt="CódigoSuri Logo" class="footer-logo">
+        <p class="footer-text">© 2025 CódigoSuri. Tecnología con identidad.</p>
+        <a href="mailto:info@codigosuri.com" class="footer-email">info@codigosuri.com</a>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
