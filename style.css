@@ -525,11 +525,15 @@ body {
   padding: var(--spacing-md);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .contact-form iframe {
   border-radius: 8px;
   border: none;
+  max-width: 100%;
+  width: 800px;
+  height: 685px;
 }
 
 .form-group {
@@ -649,6 +653,10 @@ body {
 .service-card:nth-child(6) { animation-delay: 0.6s; }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
   .menu-toggle {
     display: flex;
     z-index: 1001;
@@ -713,6 +721,33 @@ body {
 
   .contact-content {
     grid-template-columns: 1fr;
+  }
+
+  .contact {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .contact .container {
+    padding: 0 5px;
+    max-width: 100%;
+  }
+
+  .contact-info {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .contact-form {
+    padding: 0;
+    box-shadow: none;
+    background-color: transparent;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  .contact-form iframe {
+    width: calc(100vw - 10px);
+    height: 800px;
+    border-radius: 0;
   }
 
   .contact-info .section-title {
