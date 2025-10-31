@@ -1,0 +1,16 @@
+Scrapy:
+- Recibimos una app de celular ya hecha para optimizar la recolección de ultima milla, estaba muy floja así que tuvimos que refactorizarla y agregarle muchas funcionalidades, a la vez manejamos el backend de la api, hicimos un sistema de administración enr react
+las tecnologias de esta app son: react native, laravel, react, mysql
+Tiene las funcionalidades de optimizacion de rutas, manejo de coordenadas, mensajeria, notificaciones, estadisticas y reportes
+Bar zoom:
+- Hicimos un sistema de gestion para que el bar pueda manejar caja, turnos, stock, control de ventas y entradas, ademas tienen un panel administrativo donde pueden ver estadisticas y metricas
+la tecnologia es django postgres y react, es un trabajo 100% a medida, ademas se conecta con perifericos como lectores de codigo de barra e impresoras
+tambien se conecta con mercadopago y afip para las ventas y facturación y tambien manda notificaciones por telegram para una gestión rapida de incidentes como falta de stock
+Bot de seguros:
+- Esta hecho con una libreria en node para bots de whatsapp, redis, django, postgress y langraph. La idea es que los clientes de un broker de seguros puedan hablar por wsp a un bot para buscar los incidentes que abrieron en una plataforma de oracle y crear nuevos incidentes en la misma. El sistema usa un agente de ia para que la persona pueda hacer todo en lenguaje natural sin botoneras ni flujos estructurados y se conecta con la plataforma de oracle 
+Ecosnapshot:
+- La  plataforma esta hecha con django postgres y vue, se conecta con openai y tenemos un rag con info. Es una plataforma donde las pymes completamen un formulario de 50 preguntas y se les da una calificacion de como vienen en las diferentes areas del triple impacto, ademas de un informe personalizado con planes de mejora estructurados paso a paso a sus necesidades y caracteristicas
+Espacio mistral:
+- Esta hecho en django postgres docker y react. Es una plataforma para un teatro independiente de españa, pueden hacer la gestion de eventos, funciones, suscripciones de usuarios, donaciones, compra de entradas, gestion de entradas y demas. Ademas tienen un panel con métricas y estadísticas para poder sacar el máximo potencial
+Estudio de abogados:
+- Esta hecho en python puro con librerias como selenium, elllos necesitaban un script que se ejecute todos los dias, tenian dos funcionalidades clave: una que descargaba novedades de los casos desde el poder judicial y los subia al programa lexdoctor que usan normalemente, y otra que era lo opuesto, desde lex doctor descargaban las novedades y escritos y los subian al poder judicial.
