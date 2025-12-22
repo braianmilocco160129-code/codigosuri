@@ -596,16 +596,13 @@ body {
   overflow: hidden;
 }
 
-.contact-form iframe {
-  border-radius: 8px;
-  border: none;
-  max-width: 100%;
-  width: 800px;
-  height: 685px;
+.custom-form {
+  width: 100%;
+  max-width: 800px;
 }
 
 .form-group {
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
 }
 
 .form-group label {
@@ -613,6 +610,7 @@ body {
   font-weight: 600;
   color: var(--color-gray-dark);
   margin-bottom: var(--spacing-xs);
+  font-size: 0.95rem;
 }
 
 .form-group input,
@@ -620,21 +618,53 @@ body {
   width: 100%;
   padding: var(--spacing-sm);
   border: 2px solid var(--color-gray-light);
-  border-radius: 4px;
+  border-radius: 6px;
   font-family: inherit;
   font-size: 1rem;
   transition: var(--transition);
+  box-sizing: border-box;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--color-red);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
 }
 
 .form-group textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 150px;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-red);
+  color: var(--color-white);
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: var(--spacing-sm);
+}
+
+.btn-submit:hover {
+  background-color: var(--color-red-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+.btn-submit:disabled {
+  background-color: var(--color-gray-light);
+  cursor: not-allowed;
+  transform: none;
 }
 
 .form-message {
@@ -1099,17 +1129,25 @@ body {
   }
 
   .contact-form {
-    padding: 0;
+    padding: var(--spacing-sm);
     box-shadow: none;
     background-color: transparent;
     border-radius: 0;
     margin: 0;
   }
 
-  .contact-form iframe {
-    width: calc(100vw - 10px);
-    height: 800px;
-    border-radius: 0;
+  .custom-form {
+    max-width: 100%;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px; /* Previene zoom en iOS */
+  }
+
+  .btn-submit {
+    font-size: 1rem;
+    padding: var(--spacing-sm);
   }
 
   .contact-info .section-title {

@@ -113,8 +113,9 @@ function initCarousel() {
 function initContactForm() {
   const form = document.getElementById('contactForm');
   const formMessage = document.getElementById('formMessage');
+  const btnEnviar = document.getElementById('btn-enviar');
 
-  // Si no existe el formulario (porque usamos iframe de Google Forms), salir
+  // Si no existe el formulario, salir
   if (!form || !formMessage) {
     return;
   }
@@ -122,21 +123,29 @@ function initContactForm() {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const formData = {
-      name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      message: document.getElementById('message').value
-    };
-
+    // Deshabilitar botón y cambiar texto
+    btnEnviar.textContent = 'Enviando...';
+    btnEnviar.disabled = true;
+    
     formMessage.className = 'form-message';
     formMessage.textContent = 'Enviando mensaje...';
     formMessage.style.display = 'block';
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // URL de Google Apps Script
+      const urlScript = 'https://script.google.com/macros/s/AKfycbyFNOVVLBeVmRDNiLJQsrKXMWE3NlHuW1ziHy03Fiy89KNUFnMErMyAw32HmLbXlHgj/exec';
+      
+      // Preparar datos como FormData
+      const datos = new URLSearchParams(new FormData(form));
 
-      console.log('Form data:', formData);
+      // Enviar con modo no-cors
+      await fetch(urlScript, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: datos
+      });
 
+      // Si llegamos aquí es porque el envío se completó
       formMessage.className = 'form-message success';
       formMessage.textContent = '¡Mensaje enviado con éxito! Te contactaremos pronto.';
 
@@ -146,8 +155,13 @@ function initContactForm() {
         formMessage.style.display = 'none';
       }, 5000);
     } catch (error) {
+      console.error('Error:', error);
       formMessage.className = 'form-message error';
       formMessage.textContent = 'Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.';
+    } finally {
+      // Restaurar botón
+      btnEnviar.textContent = 'Enviar Consulta';
+      btnEnviar.disabled = false;
     }
   });
 }

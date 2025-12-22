@@ -215,7 +215,31 @@
               </div>
             </div>
             <div class="contact-form">
-              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfNeKRCmIJydC_2ZmrMpjdvCN7AssHhHtxHJFRb06KeTaqoaA/viewform?embedded=true" width="800" height="685" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+              <form id="contactForm" class="custom-form">
+                <div class="form-group">
+                  <label for="name">Nombre completo</label>
+                  <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                </div>
+                
+                <div class="form-group">
+                  <label for="phone">Teléfono</label>
+                  <input type="tel" id="phone" name="phone" required placeholder="Tu teléfono">
+                </div>
+                
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required placeholder="Tu email">
+                </div>
+                
+                <div class="form-group">
+                  <label for="message">Mensaje</label>
+                  <textarea id="message" name="message" rows="5" required placeholder="Contanos sobre tu proyecto"></textarea>
+                </div>
+                
+                <button type="submit" id="btn-enviar" class="btn-submit">Enviar Consulta</button>
+                
+                <div id="formMessage" class="form-message" style="display: none;"></div>
+              </form>
             </div>
           </div>
         </div>
