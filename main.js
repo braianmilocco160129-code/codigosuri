@@ -417,11 +417,25 @@ function initWhatsAppFloat() {
 // Tooltips para móvil (click/touch)
 function initTooltips() {
   const tooltipTriggers = document.querySelectorAll('.tooltip-trigger');
+  const isMobile = window.innerWidth <= 768;
+  
+  // Crear backdrop para mobile
+  let backdrop = document.querySelector('.tooltip-backdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'tooltip-backdrop';
+    document.body.appendChild(backdrop);
+  }
   
   tooltipTriggers.forEach(trigger => {
-    // Para dispositivos táctiles
+    const tooltipBox = trigger.querySelector('.tooltip-box');
+    
+    // Para dispositivos táctiles y mobile
     trigger.addEventListener('click', (e) => {
+      e.preventDefault();
       e.stopPropagation();
+      
+      const isActive = trigger.classList.contains('active');
       
       // Cerrar otros tooltips activos
       tooltipTriggers.forEach(t => {
@@ -431,15 +445,70 @@ function initTooltips() {
       });
       
       // Toggle este tooltip
-      trigger.classList.toggle('active');
-    });
-    
-    // Permitir cerrar al hacer clic fuera
-    document.addEventListener('click', (e) => {
-      if (!trigger.contains(e.target)) {
+      if (!isActive) {
+        trigger.classList.add('active');
+        if (isMobile || window.innerWidth <= 768) {
+          backdrop.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      } else {
         trigger.classList.remove('active');
+        backdrop.classList.remove('active');
+        document.body.style.overflow = '';
       }
     });
+    
+    // Cerrar con el backdrop
+    if (tooltipBox) {
+      backdrop.addEventListener('click', () => {
+        tooltipTriggers.forEach(t => t.classList.remove('active'));
+        backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+      
+      // Cerrar con el botón X (::before del tooltip-box)
+      tooltipBox.addEventListener('click', (e) => {
+        const rect = tooltipBox.getBoundingClientRect();
+        const closeButtonArea = {
+          top: rect.top,
+          right: rect.right,
+          bottom: rect.top + 40,
+          left: rect.right - 40
+        };
+        
+        if (e.clientX >= closeButtonArea.left && 
+            e.clientX <= closeButtonArea.right &&
+            e.clientY >= closeButtonArea.top && 
+            e.clientY <= closeButtonArea.bottom) {
+          trigger.classList.remove('active');
+          backdrop.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+  });
+  
+  // Cerrar al hacer click fuera (solo desktop)
+  document.addEventListener('click', (e) => {
+    if (window.innerWidth > 768) {
+      const isTooltipClick = Array.from(tooltipTriggers).some(trigger => 
+        trigger.contains(e.target)
+      );
+      
+      if (!isTooltipClick) {
+        tooltipTriggers.forEach(t => t.classList.remove('active'));
+        backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+  });
+  
+  // Actualizar comportamiento al redimensionar
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      backdrop.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   });
 }
 
