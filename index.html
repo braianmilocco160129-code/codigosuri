@@ -4,8 +4,79 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="CódigoSuri - Desarrollo de software a medida para empresas y emprendedores. Tecnología con identidad.">
-    <title>CódigoSuri - Tecnología a tu medida</title>
+    
+    <!-- SEO Básico -->
+    <title>CódigoSuri - Desarrollo de Software a Medida | Apps, Webs y Sistemas</title>
+    <meta name="description" content="Desarrollamos software a medida para empresas y emprendedores. Apps móviles, sitios web, sistemas de gestión, BI y automatizaciones. Código simple, eficiente y escalable. Consultá sin compromiso.">
+    <meta name="keywords" content="desarrollo software, apps móviles, sitios web, sistemas gestión, MVP, prueba concepto, desarrollo a medida, software empresas, automatización, business intelligence, Argentina">
+    <meta name="author" content="CódigoSuri">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://codigosuri.com/">
+    
+    <!-- Open Graph / Facebook / Meta Ads -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://codigosuri.com/">
+    <meta property="og:title" content="CódigoSuri - Desarrollo de Software a Medida">
+    <meta property="og:description" content="Transformamos tu idea en software. Apps, webs y sistemas pensados para crecer con vos. Sin compromisos innecesarios, código limpio y escalable.">
+    <meta property="og:image" content="https://codigosuri.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:site_name" content="CódigoSuri">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://codigosuri.com/">
+    <meta name="twitter:title" content="CódigoSuri - Desarrollo de Software a Medida">
+    <meta name="twitter:description" content="Transformamos tu idea en software. Apps, webs y sistemas pensados para crecer con vos.">
+    <meta name="twitter:image" content="https://codigosuri.com/og-image.jpg">
+    
+    <!-- Google Ads / Analytics Ready -->
+    <!-- Google tag (gtag.js) - Descomentar cuando tengas tu ID -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script> -->
+    <!-- <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script> -->
+    
+    <!-- Meta Pixel - Descomentar cuando tengas tu Pixel ID -->
+    <!-- <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'TU_PIXEL_ID');
+      fbq('track', 'PageView');
+    </script> -->
+    
+    <!-- Schema.org Structured Data para Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CódigoSuri",
+      "url": "https://codigosuri.com",
+      "logo": "https://codigosuri.com/logo.png",
+      "description": "Desarrollo de software a medida para empresas y emprendedores",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+54-9-221-573-1279",
+        "contactType": "sales",
+        "availableLanguage": "Spanish"
+      },
+      "sameAs": [
+      ],
+      "areaServed": "AR",
+      "serviceType": ["Desarrollo de Software", "Aplicaciones Móviles", "Sitios Web", "Sistemas de Gestión", "Business Intelligence", "Automatizaciones"]
+    }
+    </script>
+    
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -21,8 +92,9 @@
         </button>
         <nav class="nav-menu" id="navMenu">
           <a href="#servicios" class="nav-link">Servicios</a>
+          <a href="#filosofia" class="nav-link">Cómo Trabajamos</a>
           <a href="#experiencia" class="nav-link">Experiencia</a>
-          <a href="#equipo" class="nav-link">Quiénes Somos</a>
+          <a href="#equipo" class="nav-link">Equipo</a>
           <a href="#contacto" class="nav-link">Contacto</a>
         </nav>
       </div>
@@ -34,9 +106,14 @@
           <div class="hero-text">
             <h1 class="hero-title">Tecnología a tu medida</h1>
             <p class="hero-subtitle">
-              Somos <strong>CódigoSuri</strong>, un equipo de desarrollo que crea las soluciones de software que tu proyecto necesita. Sin importar el tamaño, convertimos tu idea en código.
+              Somos <strong>CódigoSuri</strong>, un equipo que <em>primero escucha</em> y después desarrolla. No te vendemos soluciones caras que no necesitás. Construimos software <strong>simple, eficiente y pensado para crecer con vos</strong>.
             </p>
-            <a href="#contacto" class="btn btn-primary">Contanos tu idea</a>
+            <div class="hero-badges">
+              <span class="hero-badge"><span class="badge-icon">✓</span> Sin compromisos innecesarios</span>
+              <span class="hero-badge"><span class="badge-icon">✓</span> Código limpio y mantenible</span>
+              <span class="hero-badge"><span class="badge-icon">✓</span> Escalable desde el día uno</span>
+            </div>
+            <a href="#contacto" class="btn btn-primary pulse-animation">Contanos tu idea</a>
           </div>
           <div class="hero-image">
             <img src="trama.jpg" alt="Trama CódigoSuri" />
@@ -48,7 +125,7 @@
         <div class="container">
           <h2 class="section-title">¿Qué Hacemos?</h2>
           <p class="section-intro">
-            Nuestro objetivo es democratizar el acceso a la tecnología. Escuchamos, analizamos y trabajamos junto a vos para crear soluciones escalables y eficientes, sin venderte cosas que no necesitás.
+            Democratizamos el acceso a la tecnología. Cada solución que creamos está pensada para ser <strong>simple de usar, fácil de mantener y lista para escalar</strong>. No vendemos humo, vendemos resultados.
           </p>
           <div class="services-grid">
             <div class="service-card">
@@ -92,6 +169,59 @@
               </div>
               <h3>Bots e Integraciones</h3>
               <p>Automatización inteligente con IA para tu negocio.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="philosophy" id="filosofia">
+        <div class="container">
+          <h2 class="section-title">Cómo Trabajamos</h2>
+          <p class="section-intro">
+            No queremos que inviertas de más sin validar tu idea. Te acompañamos paso a paso.
+          </p>
+          
+          <div class="philosophy-grid">
+            <div class="philosophy-card glow-effect">
+              <div class="philosophy-icon">🎯</div>
+              <h3>Validá antes de invertir</h3>
+              <p>Te ayudamos a probar tu idea con una versión inicial antes de un desarrollo completo:</p>
+              <div class="concept-tags">
+                <span class="concept-tag tooltip-trigger" data-tooltip="poc">
+                  PoC
+                  <span class="tooltip-box">
+                    <strong>Prueba de Concepto</strong><br>
+                    Versión básica para demostrar que tu idea funciona técnicamente. Se hace en días, no meses.
+                  </span>
+                </span>
+                <span class="concept-tag tooltip-trigger" data-tooltip="mvp">
+                  MVP
+                  <span class="tooltip-box">
+                    <strong>Producto Mínimo Viable</strong><br>
+                    La versión más simple con lo esencial para salir al mercado y obtener feedback real.
+                  </span>
+                </span>
+              </div>
+            </div>
+            
+            <div class="philosophy-card glow-effect">
+              <div class="philosophy-icon">⚡</div>
+              <h3>Código simple y mantenible</h3>
+              <p>Sin herramientas innecesarias. Código limpio que cualquier desarrollador puede entender y mantener.</p>
+              <div class="code-example">
+                <span class="code-good">✓ Una solución integrada</span>
+                <span class="code-bad">✗ 10 plataformas dispersas</span>
+              </div>
+            </div>
+            
+            <div class="philosophy-card glow-effect">
+              <div class="philosophy-icon">🛡️</div>
+              <h3>Sin ataduras</h3>
+              <p>Arquitectura simple, tecnologías estándar. No quedás atado a nosotros ni a proveedores específicos.</p>
+              <div class="warning-box">
+                <span class="warning-icon">💡</span>
+                <span>Tu código es tuyo, siempre</span>
+              </div>
             </div>
           </div>
         </div>
@@ -249,7 +379,7 @@
     <footer class="footer">
       <div class="container footer-content">
         <img src="logo.png" alt="CódigoSuri Logo" class="footer-logo">
-        <p class="footer-text">© 2025 CódigoSuri. Tecnología con identidad.</p>
+        <p class="footer-text">© 2026 CódigoSuri. Tecnología con identidad.</p>
         
         
       </div>

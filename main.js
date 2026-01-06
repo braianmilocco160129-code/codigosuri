@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initProjectModal();
   initWhatsAppFloat();
+  initTooltips();
+  initParallaxEffects();
 });
 
 function initMobileMenu() {
@@ -148,6 +150,9 @@ function initContactForm() {
       // Si llegamos aquí es porque el envío se completó
       formMessage.className = 'form-message success';
       formMessage.textContent = '¡Mensaje enviado con éxito! Te contactaremos pronto.';
+
+      // Tracking de conversión (se activa cuando configures los pixels)
+      trackConversion('Lead', { content_name: 'Formulario de contacto' });
 
       form.reset();
 
@@ -408,3 +413,166 @@ function initWhatsAppFloat() {
     whatsappFloat.classList.add('message-hidden');
   }
 }
+
+// Tooltips para móvil (click/touch)
+function initTooltips() {
+  const tooltipTriggers = document.querySelectorAll('.tooltip-trigger');
+  
+  tooltipTriggers.forEach(trigger => {
+    // Para dispositivos táctiles
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      
+      // Cerrar otros tooltips activos
+      tooltipTriggers.forEach(t => {
+        if (t !== trigger) {
+          t.classList.remove('active');
+        }
+      });
+      
+      // Toggle este tooltip
+      trigger.classList.toggle('active');
+    });
+    
+    // Permitir cerrar al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (!trigger.contains(e.target)) {
+        trigger.classList.remove('active');
+      }
+    });
+  });
+}
+
+// Efectos de parallax suaves
+function initParallaxEffects() {
+  const philosophyCards = document.querySelectorAll('.philosophy-card');
+  const heroBadges = document.querySelectorAll('.hero-badge');
+  
+  // Animación de entrada escalonada para cards de filosofía
+  const observerCards = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, index * 150);
+      }
+    });
+  }, { threshold: 0.2 });
+  
+  philosophyCards.forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'all 0.6s ease';
+    observerCards.observe(card);
+  });
+  
+  // Animación de entrada para badges del hero
+  heroBadges.forEach((badge, index) => {
+    badge.style.opacity = '0';
+    badge.style.transform = 'translateX(-20px)';
+    badge.style.transition = `all 0.5s ease ${index * 0.1}s`;
+    
+    setTimeout(() => {
+      badge.style.opacity = '1';
+      badge.style.transform = 'translateX(0)';
+    }, 500 + index * 100);
+  });
+  
+  // Efecto de contador para crear impacto visual
+  animateCounters();
+}
+
+// Animador de contadores (para futuros stats)
+function animateCounters() {
+  const counters = document.querySelectorAll('.stat-number');
+  
+  counters.forEach(counter => {
+    const target = parseInt(counter.getAttribute('data-target'));
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+    
+    const updateCounter = () => {
+      current += step;
+      if (current < target) {
+        counter.textContent = Math.ceil(current);
+        requestAnimationFrame(updateCounter);
+      } else {
+        counter.textContent = target;
+      }
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        updateCounter();
+        observer.disconnect();
+      }
+    });
+    
+    observer.observe(counter);
+  });
+}
+
+// ================================
+// TRACKING DE CONVERSIONES
+// ================================
+// Estas funciones se activarán cuando configures tus pixels de Meta y Google
+
+function trackConversion(eventName, params = {}) {
+  // Meta Pixel (Facebook/Instagram)
+  if (typeof fbq !== 'undefined') {
+    fbq('track', eventName, params);
+  }
+  
+  // Google Analytics 4
+  if (typeof gtag !== 'undefined') {
+    gtag('event', eventName, params);
+  }
+  
+  // Console log para debug (quitar en producción si querés)
+  console.log('📊 Conversión:', eventName, params);
+}
+
+// Trackear clic en WhatsApp
+function initWhatsAppTracking() {
+  const whatsappBtn = document.querySelector('.whatsapp-button');
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener('click', () => {
+      trackConversion('Contact', { 
+        content_name: 'WhatsApp',
+        method: 'whatsapp'
+      });
+    });
+  }
+}
+
+// Trackear scroll a secciones importantes (para remarketing)
+function initScrollTracking() {
+  const sectionsToTrack = ['servicios', 'contacto'];
+  const trackedSections = new Set();
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !trackedSections.has(entry.target.id)) {
+        trackedSections.add(entry.target.id);
+        trackConversion('ViewContent', { 
+          content_name: entry.target.id,
+          content_type: 'section'
+        });
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  sectionsToTrack.forEach(sectionId => {
+    const section = document.getElementById(sectionId);
+    if (section) observer.observe(section);
+  });
+}
+
+// Inicializar tracking cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+  initWhatsAppTracking();
+  initScrollTracking();
+});
+
